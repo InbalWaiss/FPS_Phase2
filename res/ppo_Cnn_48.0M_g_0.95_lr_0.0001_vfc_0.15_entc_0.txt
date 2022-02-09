@@ -1,0 +1,2 @@
+9407 10000 14.4963
+trained_models:0.9407 Blue won in 9407 games out of 10000
