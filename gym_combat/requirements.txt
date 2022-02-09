@@ -25,4 +25,4 @@ tqdm
 moviepy
 stable-baselines3
 pymap3d
-tensorboard==1.15.0
+tensorboard #==1.15.0
