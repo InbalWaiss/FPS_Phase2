@@ -6,7 +6,7 @@ from gym_combat.gym_combat.envs.Arena.graphics import print_stats, print_episode
     save_reward_stats, save_evaluation_data
 from gym_combat.gym_combat.envs.Arena.helper_funcs import *
 from gym_combat.gym_combat.envs.Common.constants import *
-from gym_combat.gym_combat.envs.Arena.Entity import Entity
+from gym_combat.gym_combat.envs.Arena.Entity import Entity, CPoint, possible_azimuth
 
 import numpy as np
 from PIL import Image
@@ -121,7 +121,8 @@ class Environment(object):
         while is_obs:
             self.red_player.w = np.random.randint(min_cord_w, max_cord_w)
             self.red_player.h = np.random.randint(min_cord_h, max_cord_h)
-            is_obs = self.red_player.is_obs(self.red_player.h, self.red_player.w)
+            azimuth = possible_azimuth[np.random.randint(0, len(possible_azimuth))]
+            is_obs = self.red_player.is_obs(CPoint(self.red_player.h, self.red_player.w), azimuth)
 
         is_los = (self.red_player.h, self.red_player.w) in DICT_POS_FIRE_RANGE[(self.blue_player.h, self.blue_player.w)]
         if is_los:
